@@ -1,5 +1,127 @@
+@import "header.css";
+@import "info.css";
+
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+    font-family: "IBM Plex mono", sans-serif;
+    font-size: 18px;
+    background-image: var(--background-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.title-decor {
+    color: var(--title-text);
+    background-color: var(--accent-color);
+    font-weight: bold;
+    line-height: 23.4px;
+    font-size: 18px;
+}
+
+.title-decor_info {
+    font-weight: normal;
+}
+
+.no-focus {
+    color: var(--no-focus-text);
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    text-shadow: 4px 4px 0 var(--accent-color);
+    font-weight: bold;
+    line-height: 0.825;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    padding: 40px var(--global-padding);
+}
+
+.gallery {
+    display: grid;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.gallery__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    position: relative;
+    padding: var(--global-padding);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__no-focus {
+    text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.header::after, .header::before, .footer::after, .footer::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+.header::after, .footer::after {
+    right: var(--global-padding);
+    top: var(--global-padding);
+    border-right: 1px solid var(--decoration-color);
+    border-top: 1px solid var(--decoration-color);
+}
+
+.header::before, .footer::before {
+    left: var(--global-padding);
+    bottom: var(--global-padding);
+    border-left: 1px solid var(--decoration-color);
+    border-bottom: 1px solid var(--decoration-color);
+}
+
+@media (min-width: 768px) {
+    .no-focus {
+        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    }
+
+    .main {
+        padding: 60px var(--global-padding);
+        row-gap: 80px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "sunset sunset ice-cream"
+        "tape books ice-cream"
+        "tape street street";
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .gallery__image_sunset {
+        grid-area: sunset;
+    }
+
+    .gallery__image_ice-cream {
+        grid-area: ice-cream;
+    }
+
+    .gallery__image_books {
+        grid-area: books;
+    }
+
+    .gallery__image_tape {
+        grid-area: tape;
+    }
+
+    .gallery__image_street {
+        grid-area: street;
+    }
 }
